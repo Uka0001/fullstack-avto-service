@@ -1,0 +1,48 @@
+
+version: '3.8'
+
+services:
+  postgres:
+    container_name: postgres
+    image: postgres
+    restart: unless-stopped
+    env_file: api/.env
+    environment:
+      - POSTGRESQL_ROOT_PASSWORD=$DB_PASSWORD
+      - POSTGRESQL_DATABASE=$DB_NAME
+      - POSTGRESQL_USER=$DB_USER
+      - POSTGRESQL_PASSWORD=$DB_PASSWORD
+#      - POSTGRESQL_TCP_PORT=$DB_PORT
+    ports:
+      - "5432:5431"
+
+  api:
+    container_name: api
+    image: spring-boot-api
+    build: /.
+    env_file: api/.env
+    ports:
+      - "6868:8080"
+      - "5005:5005"
+    depends_on:
+      - postgres
+    environment:
+      "spring.jpa.properties.hibernate.dialect" : "org.hibernate.dialect.PostgreSQLDialect"
+      "spring.datasource.url" : "jdbc:postgresql://localhost:$DB_PORT/$DB_NAME?createDatabaseIfNotExist=true"
+      "spring.datasource.username" : "$DB_USER"
+      "spring.datasource.password" : "$DB_PASSWORD"
+      "spring.jpa.hibernate.ddl-auto" : "validate"
+      "spring.liquibase.change-log" : "classpath:db.changelog/db.changelog-master.yaml"
+
+  frontend:
+    container_name: frontend
+    image: frontend
+    build: /.
+    ports:
+      - "4200:4200"
+    depends_on:
+      - api
+    volumes:
+      - ./frontend:/src/app:delegated
+      - /src/app/node_modules
+      - /src/app/.angular
