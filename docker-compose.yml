@@ -20,7 +20,7 @@ services:
     image: spring-boot-api
     build:
       context: ./api
-      dockerfile: ./Dockerfile
+      dockerfile: Dockerfile
     env_file: .env
     ports:
       - "6868:8080"
@@ -41,7 +41,7 @@ services:
     image: frontend
     build:
       context: ./frontend
-      dockerfile: ./Dockerfile
+      dockerfile: Dockerfile
     ports:
       - "4200:4200"
     depends_on:
