@@ -6,6 +6,8 @@ import com.example.autoservice.dto.request.CarRequestDto;
 import com.example.autoservice.dto.response.CarResponseDto;
 import com.example.autoservice.model.Car;
 import com.example.autoservice.service.CarService;
+import java.util.List;
+import java.util.stream.Collectors;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,9 +17,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 @CrossOrigin
 @AllArgsConstructor

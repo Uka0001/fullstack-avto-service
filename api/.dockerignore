@@ -1,8 +1,5 @@
 # .dockerignore for Spring Boot project with PostgreSQL
 
-# Exclude any build output directories
-target
-
 # Exclude any IDE-specific files or directories
 .idea
 *.iml
