@@ -1,5 +1,5 @@
-create database autoservice_db;
-create table public.cars
+CREATE DATABASE autoservice_db;
+create table if not exists public.cars
 (
     id     bigserial
         primary key,
@@ -9,10 +9,10 @@ create table public.cars
     year   integer not null
 );
 
-alter table public.cars
+alter table  public.cars
     owner to postgres;
 
-create table public.goods
+create table if not exists public.goods
 (
     id        bigserial
         primary key,
@@ -26,7 +26,7 @@ create table public.goods
 alter table public.goods
     owner to postgres;
 
-create table public.masters
+create table if not exists public.masters
 (
     id        bigserial
         primary key,
@@ -36,7 +36,7 @@ create table public.masters
 alter table public.masters
     owner to postgres;
 
-create table public.orders
+create table if not exists public.orders
 (
     id               bigserial
         primary key,
@@ -52,10 +52,10 @@ create table public.orders
             references public.masters
 );
 
-alter table public.orders
+alter table  public.orders
     owner to postgres;
 
-create table public.owners
+create table if not exists public.owners
 (
     id         bigserial
         primary key,
@@ -65,7 +65,7 @@ create table public.owners
 alter table public.owners
     owner to postgres;
 
-create table public.services
+create table if not exists public.services
 (
     id        bigserial
         primary key,

@@ -1,7 +1,55 @@
 <div class="header">
-  cars component
+  <h1>Cars component</h1>
 </div>
-
+<br>
+<h2>All cars models (Get cars method)</h2>
 <div *ngFor="let car of cars$ | async">
   {{car.model}}
+</div>
+<div>
+  <br>
+  <h2>Update car method</h2>
+  <form (ngSubmit)="onUpdateCar()">
+    <label for="id">ID:</label>
+    <input type="number" name="id" [(ngModel)]="updatedCar.id">
+
+    <label for="brand">Brand:</label>
+    <input type="text" name="brand" [(ngModel)]="updatedCar.brand">
+
+    <label for="model">Model:</label>
+    <input type="text" name="model" [(ngModel)]="updatedCar.model">
+
+    <label for="year">Year:</label>
+    <input type="number" name="year" [(ngModel)]="updatedCar.year">
+
+    <label for="number">Number:</label>
+    <input type="text" name="number" [(ngModel)]="updatedCar.number">
+
+    <label for="ownerId">OwnerId:</label>
+    <input type="number" name="ownerId" [(ngModel)]="updatedCar.ownerId">
+
+    <button type="submit">Update Car</button>
+  </form>
+</div>
+<div>
+  <br>
+  <h2>Add car method</h2>
+  <form (ngSubmit)="onCreateCar()">
+    <label for="brand">Brand:</label>
+    <input type="text" name="brand" [(ngModel)]="newCar.brand">
+
+    <label for="model">Model:</label>
+    <input type="text" name="model" [(ngModel)]="newCar.model">
+
+    <label for="year">Year:</label>
+    <input type="number" name="year" [(ngModel)]="newCar.year">
+
+    <label for="number">Number:</label>
+    <input type="text" name="number" [(ngModel)]="newCar.number">
+
+    <label for="ownerId">OwnerId:</label>
+    <input type="number" name="ownerId" [(ngModel)]="newCar.ownerId">
+
+    <button type="submit">Create Car</button>
+  </form>
 </div>
