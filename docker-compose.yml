@@ -3,19 +3,22 @@ version: '3.8'
 services:
   postgres:
     container_name: postgres
-    image: postgres:15-alpine
+    image: postgres:latest
     restart: unless-stopped
     env_file: .env
+    build:
+      context: ./api
+      dockerfile: Dockerfile
     environment:
-      - POSTGRESQL_ROOT_PASSWORD=$DB_PASSWORD
-      - POSTGRESQL_DATABASE=$DB_NAME
-      - POSTGRESQL_USER=$DB_USER
-      - POSTGRESQL_PASSWORD=$DB_PASSWORD
-      - POSTGRESQL_TCP_PORT=$POSTGRESDB_LOCAL_PORT
+      - POSTGRESQL_ROOT_PASSWORD=${POSTGRESQL_ROOT_PASSWORD}
+      - POSTGRESQL_DATABASE=${DB_NAME}
+      - POSTGRESQL_USER=${DB_USER}
+      - POSTGRESQL_PASSWORD=${DB_PASSWORD}
+      - POSTGRESQL_TCP_PORT=${POSTGRESDB_LOCAL_PORT}
       - POSTGRES_HOST_AUTH_METHOD=trust
-    ports:
-      - 5432:5432
 
+    ports:
+      - ${POSTGRESDB_DOCKER_PORT}:${POSTGRESDB_LOCAL_PORT}
 
   api:
     container_name: api
@@ -25,15 +28,15 @@ services:
       dockerfile: Dockerfile
     env_file: .env
     ports:
-      - "8080:8080"
-#      - "5005:5005"
+      - ${SPRING_DOCKER_PORT}:${SPRING_LOCAL_PORT}
+
     depends_on:
       - postgres
     environment:
       "spring.jpa.properties.hibernate.dialect": "org.hibernate.dialect.PostgreSQLDialect"
-      "spring.datasource.url": "jdbc:postgresql://localhost:$POSTGRESDB_LOCAL_PORT/$DB_NAME?createDatabaseIfNotExist=true"
-      "spring.datasource.username": "$DB_USER"
-      "spring.datasource.password": "$DB_PASSWORD"
+      "spring.datasource.url": "jdbc:postgresql://postgres:5432/${DB_NAME}"
+      "spring.datasource.username": ${DB_USER}
+      "spring.datasource.password": ${DB_PASSWORD}
       "spring.jpa.hibernate.ddl-auto": "validate"
       "spring.liquibase.change-log": "classpath:db.changelog/db.changelog-master.yaml"
       JAVA_TOOL_OPTIONS: "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005"
@@ -45,7 +48,7 @@ services:
       context: ./frontend
       dockerfile: Dockerfile
     ports:
-      - "4200:4200"
+      - ${ANGULAR_LOCAL_PORT}:${ANGULAR_DOCKER_PORT}
     depends_on:
       - api
     volumes:
