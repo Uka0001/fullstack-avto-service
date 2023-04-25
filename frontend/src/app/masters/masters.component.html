@@ -2,3 +2,41 @@
   <h1>Masters component</h1>
 </div>
 <p>masters works!</p>
+<br>
+<h2>Get Master Orders method)</h2>
+<form (ngSubmit)="onGetMasterOrders()">
+  <label for="masterId">ID:</label>
+  <input type="number" name="masterId" [(ngModel)]="masterId">
+
+  <button type="submit">Get Masters Orders</button>
+</form>
+<div>
+  <br>
+  <h2>Update Master method</h2>
+  <form (ngSubmit)="onUpdateMaster()">
+    <label for="id">ID:</label>
+    <input type="number" name="id" [(ngModel)]="updatedMaster.id">
+
+    <label for="fullName">Full Name:</label>
+    <input type="text" name="fullName" [(ngModel)]="updatedMaster.fullName">
+
+    <label for="completedOrderId">Completed Order Id:</label>
+    <input type="number" name="completedOrderId[]" [(ngModel)]="updatedMaster.completedOrderId">
+
+    <button type="submit">Update Master</button>
+  </form>
+</div>
+<div>
+  <br>
+  <h2>Create good method</h2>
+  <form (ngSubmit)="onCreateMaster()">
+
+    <label for="fullName">Full Name:</label>
+    <input type="text" name="fullName" [(ngModel)]="newMaster.fullName">
+
+    <label for="completedOrderId">Completed Order Id:</label>
+    <input type="number" name="completedOrderId[]" [(ngModel)]="newMaster.completedOrderId">
+
+    <button type="submit">Create Master</button>
+  </form>
+</div>

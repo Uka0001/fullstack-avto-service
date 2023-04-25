@@ -2,3 +2,44 @@
   <h1>Goods component</h1>
 </div>
 <p>goods works!</p>
+<!--<br>-->
+<!--<h2>All goods models (Get goods method)</h2>-->
+<!--<div *ngFor="let good of goods$ | async">-->
+<!--  {{good.name}}-->
+<!--</div>-->
+<div>
+  <br>
+  <h2>Update good method</h2>
+  <form (ngSubmit)="onUpdateGood()">
+    <label for="id">ID:</label>
+    <input type="number" name="id" [(ngModel)]="updatedGood.id">
+
+    <label for="name">Name:</label>
+    <input type="text" name="name" [(ngModel)]="updatedGood.name">
+
+    <label for="goodCost">Good cost:</label>
+    <input type="number" name="goodCost" [(ngModel)]="updatedGood.goodCost">
+
+    <label for="orderId">Order ID:</label>
+    <input type="number" name="orderId" [(ngModel)]="updatedGood.orderId">
+
+    <button type="submit">Update Good</button>
+  </form>
+</div>
+<div>
+  <br>
+  <h2>Create good method</h2>
+  <form (ngSubmit)="onCreateGood()">
+
+    <label for="name">Name:</label>
+    <input type="text" name="name" [(ngModel)]="newGood.name">
+
+    <label for="goodCost">Good cost:</label>
+    <input type="number" name="goodCost" [(ngModel)]="newGood.goodCost">
+
+    <label for="orderId">Order ID:</label>
+    <input type="number" name="orderId" [(ngModel)]="newGood.orderId">
+
+    <button type="submit">Create Good</button>
+  </form>
+</div>
