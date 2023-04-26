@@ -1,4 +1,4 @@
 export enum ServiceStatus {
-  PAI = 'paid',
-  NOT_PAID = 'not paid'
+  PAID = 'PAID',
+  NOT_PAID = 'NOT_PAID',
 }

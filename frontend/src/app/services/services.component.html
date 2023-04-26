@@ -2,3 +2,63 @@
   <h1>Services component</h1>
 </div>
 <p>services works!</p>
+<div>
+  <br>
+  <h2>Update Service status method</h2>
+  <form name="updateServiceName" (ngSubmit)="onUpdateServiceStatus()">
+    <label>ID:</label>
+    <input type="number" name="id"  [(ngModel)]="id">
+
+    <label>Status:</label>
+    <input type="text" name="updatedStatus" [(ngModel)]="updatedStatus">
+
+    <button type="submit">Update Service Status</button>
+  </form>
+</div>
+<div>
+  <br>
+  <h2>Update Service method</h2>
+  <form name="updateService" (ngSubmit)="onUpdateService()">
+    <label>ID:</label>
+    <input type="number" name="id"  [(ngModel)]="id">
+
+    <label>Service name:</label>
+    <input type="text" name="name" [(ngModel)]="name">
+
+    <label>Order Id:</label>
+    <input type="number" name="orderId"  [(ngModel)]="orderId">
+
+    <label>Master Id:</label>
+    <input type="number" name="masterId"  [(ngModel)]="masterId">
+
+    <label>Price:</label>
+    <input type="number" name="price"  [(ngModel)]="price">
+
+    <label>Status:</label>
+    <input type="text" name="updatedStatus"  [(ngModel)]="updatedStatus">
+
+    <button type="submit">Update Service</button>
+  </form>
+</div>
+<div>
+  <br>
+  <h2>Create Service method</h2>
+  <form name="createOwner" (ngSubmit)="onCreateService()">
+    <label>Service name:</label>
+    <input type="text" name="name" [(ngModel)]="name">
+
+    <label>Order Id:</label>
+    <input type="number" name="orderId"  [(ngModel)]="orderId">
+
+    <label>Master Id:</label>
+    <input type="number" name="masterId"  [(ngModel)]="masterId">
+
+    <label>Price:</label>
+    <input type="number" name="price"  [(ngModel)]="price">
+
+    <label>Status:</label>
+    <input type="text" name="updatedStatus"  [(ngModel)]="updatedStatus">
+
+    <button type="submit">Create Service</button>
+  </form>
+</div>

@@ -15,7 +15,6 @@ export class MastersComponent {
   masterFullName: string = 'test';
   masterCompletedOrderId: number = 0;
 
-  // newMaster: Master = { id: 0, fullName: '', completedOrderIds: [0] };
   constructor( private masterService: MasterService) {
     this.masters$ = this.masterService.getMasters()
   }
