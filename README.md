@@ -2,7 +2,7 @@
 
 📔 Summary:
 
-Fullstack app with Angular on front end part and backend with REST-API Server app that accepts HTTP requests, stores data in a database (DBMS - PostgreSQL) and processes them, perform CRUD operations and implement REST API. Implement Swagger and SpringDoc.
+Fullstack app with Angular on front end part and backend with REST-API Server app that accepts HTTP requests, stores data in a database (DBMS - PostgreSQL) and processes them, perform CRUD operations and implement REST API. Implement Swagger and SpringDoc, Docker.
 
 🔨 Used technologies:
 
