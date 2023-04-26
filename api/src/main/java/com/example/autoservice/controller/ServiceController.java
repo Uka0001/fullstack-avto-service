@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @CrossOrigin
@@ -39,9 +40,9 @@ public class ServiceController {
         return responseMapper.toDto(serviceService.save(service));
     }
 
-    @PutMapping("/{id}/{status}")
+    @PutMapping("/{id}/status")
     public ServiceResponseDto updateServiceStatus(@PathVariable Long id,
-                                                  @PathVariable ServiceStatus status) {
+                                                  @RequestParam ServiceStatus status) {
         Service service = serviceService.getById(id);
         service.setStatus(status);
         service.setId(id);

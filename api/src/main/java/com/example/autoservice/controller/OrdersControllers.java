@@ -50,18 +50,18 @@ public class OrdersControllers {
         return orderResponseMapper.toDto(orderService.save(order));
     }
 
-    @PutMapping("/{id}/{status}")
+    @PutMapping("/{id}/status")
     public OrderResponseDto updateOrderStatus(@PathVariable Long id,
-                                              @PathVariable OrderStatus status) {
+                                              @RequestParam OrderStatus status) {
         Order order = orderService.getOrderById(id);
         order.setStatus(status);
         return orderResponseMapper.toDto(orderService.save(order));
     }
 
-    @PostMapping("/{orderId}/{goodId}")
-    public OrderResponseDto addGood(@RequestParam Long orderId,
+    @PostMapping("/{id}/goods/add")
+    public OrderResponseDto addGood(@PathVariable Long id,
                                     @RequestParam Long goodId) {
-        Order order = orderService.getOrderById(orderId);
+        Order order = orderService.getOrderById(id);
         Good good = goodService.findById(goodId);
         List<Good> goodsList = order.getGoodsList();
         goodsList.add(good);

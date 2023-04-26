@@ -5,10 +5,10 @@ services:
     container_name: postgres
     image: postgres:latest
     restart: unless-stopped
-    env_file: .env
     build:
-      context: ./api
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: postgres.dockerfile
+    env_file: .env
     environment:
       - POSTGRESQL_ROOT_PASSWORD=${POSTGRESQL_ROOT_PASSWORD}
       - POSTGRESQL_DATABASE=${DB_NAME}
@@ -16,7 +16,10 @@ services:
       - POSTGRESQL_PASSWORD=${DB_PASSWORD}
       - POSTGRESQL_TCP_PORT=${POSTGRESDB_LOCAL_PORT}
       - POSTGRES_HOST_AUTH_METHOD=trust
-
+      - PGDATA=/data/postgres-postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init:/docker-entrypoint-initdb.d/
     ports:
       - ${POSTGRESDB_DOCKER_PORT}:${POSTGRESDB_LOCAL_PORT}
 
@@ -55,3 +58,6 @@ services:
       - ./frontend:/src/app:delegated
       - /src/app/node_modules
       - /src/app/.angular
+
+volumes:
+  postgres_data:

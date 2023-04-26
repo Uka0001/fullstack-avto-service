@@ -10,7 +10,7 @@ import com.example.autoservice.model.Master;
 import com.example.autoservice.service.MasterService;
 import java.math.BigDecimal;
 import java.util.List;
-import java.util.stream.Collectors;
+
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,6 +27,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/masters")
 public class MasterController {
+    public static final double PERSENTAGE_OF_WAGES = 0.4;
     private final MasterService masterService;
     private final MasterRequestMapper requestMapper;
     private final MasterResponseMapper responseMapper;
@@ -51,13 +52,13 @@ public class MasterController {
         return masterService.getMastersOrders(masterId)
                 .stream()
                 .map(orderResponseMapper::toDto)
-                .collect(Collectors.toList());
+                .toList();
     }
 
     @GetMapping("/wages")
     public BigDecimal findMasterWages(@RequestParam Long masterId) {
         return masterService
                 .getSalary(masterService.findById(masterId))
-                .multiply(BigDecimal.valueOf(0.4));
+                .multiply(BigDecimal.valueOf(PERSENTAGE_OF_WAGES));
     }
 }

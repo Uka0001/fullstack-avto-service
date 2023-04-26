@@ -19,7 +19,7 @@ public class MasterRequestMapper
         Master master = new Master();
         master.setFullName(dto.getFullName());
         master.setCompletedOrder(dto
-                .getCompletedOrderId()
+                .getCompletedOrderIds()
                 .stream()
                 .map(orderRepository::findById)
                 .map(order -> order.orElse(null))
