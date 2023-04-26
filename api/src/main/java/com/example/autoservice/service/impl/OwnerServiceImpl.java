@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 @Service
 @AllArgsConstructor
 public class OwnerServiceImpl implements OwnerService {
-    private OwnerRepository ownerRepository;
+    private final OwnerRepository ownerRepository;
 
     @Override
     public Owner save(Owner owner) {

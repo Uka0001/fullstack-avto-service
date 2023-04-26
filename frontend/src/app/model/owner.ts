@@ -1,8 +1,8 @@
 import Long from "long";
 
 export interface Owner {
-  id: Long;
+  id?: number;
   ownerName: string;
-  carsId: Long[];
-  ordersId: Long[];
+  carsIds: number[];
+  ordersIds: number[];
 }

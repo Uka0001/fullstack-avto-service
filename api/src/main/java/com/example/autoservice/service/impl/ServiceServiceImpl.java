@@ -9,7 +9,7 @@ import lombok.AllArgsConstructor;
 @org.springframework.stereotype.Service
 @AllArgsConstructor
 public class ServiceServiceImpl implements ServiceService {
-    private ServiceRepository serviceRepository;
+    private final ServiceRepository serviceRepository;
 
     @Override
     public Service save(Service service) {

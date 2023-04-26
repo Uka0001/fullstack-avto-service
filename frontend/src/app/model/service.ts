@@ -3,10 +3,10 @@ import {Decimal} from "decimal.js";
 import {ServiceStatus} from "./serviceStatus";
 
 export interface Service {
-  id: Long;
+  id?: number;
   name: string;
-  orderId: Long;
-  masterId: Long;
+  orderId: number;
+  masterId: number;
   price: Decimal;
   status: ServiceStatus;
 }

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 @Service
 @AllArgsConstructor
 public class CarServiceImpl implements CarService {
-    private CarRepository carRepository;
+    private final CarRepository carRepository;
 
     @Override
     public Car save(Car car) {

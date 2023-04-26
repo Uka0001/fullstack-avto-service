@@ -19,5 +19,4 @@ public enum OrderStatus {
     OrderStatus(String value) {
         this.value = value;
     }
-
 }

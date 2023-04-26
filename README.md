@@ -1,4 +1,4 @@
-# :pickup_truck: FullStack avto-service app
+# :pickup_truck: FullStack auto-service app
 
 📔 Summary:
 
@@ -22,7 +22,6 @@ BD:
 PostgreSQL
 
 📑 Functionality:
-
 • POST - Creation of the "Master" entity 
 • PUT - Editing entity data 
 • GET - Receiving master's orders 

@@ -1,7 +1,7 @@
 import Long from "long";
 
 export interface Master {
-  id: Long;
+  id?: number;
   fullName: string;
-  completedOrderId: Long[];
+  completedOrderIds: number[];
 }

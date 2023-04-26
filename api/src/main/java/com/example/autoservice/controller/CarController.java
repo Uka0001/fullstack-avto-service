@@ -23,7 +23,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/cars")
 public class CarController {
-
     private final CarService carService;
     private final CarResponseMapper carResponseMapper;
     private final CarRequestMapper carRequestMapper;
@@ -47,6 +46,6 @@ public class CarController {
         return carService.getAllCars()
                 .stream()
                 .map(car -> carResponseMapper.toDto(car))
-                .collect(Collectors.toList());
+                .toList();
     }
 }

@@ -8,7 +8,6 @@ import Long from "long";
   providedIn: 'root'
 })
 export class CarService {
-  // private readonly apiUrl = environment.apiUrl;
   private readonly apiUrl = 'http://localhost:8080';
   private readonly carPrefix = '/cars';
 

@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 @Service
 @AllArgsConstructor
 public class MasterServiceImpl implements MasterService {
-    private MasterRepository masterRepository;
+    private final MasterRepository masterRepository;
 
     @Override
     public Master save(Master master) {
@@ -27,10 +27,10 @@ public class MasterServiceImpl implements MasterService {
 
     @Override
     public BigDecimal getSalary(Master master) {
-
         Long id = master.getId();
-        List<Order> completedOrder = masterRepository
-                .findById(id).get().getCompletedOrder();
+        List<Order> completedOrder
+                = masterRepository.findById(id).get()
+                .getCompletedOrder();
         completedOrder.forEach(order -> order.setStatus(OrderStatus.PAID));
         return completedOrder
                 .stream()
@@ -40,7 +40,6 @@ public class MasterServiceImpl implements MasterService {
 
     @Override
     public List<Order> getMastersOrders(Long masterId) {
-        //return masterRepository.findById(masterId).get().getCompletedOrder();
         return masterRepository.findAllByMasterId(masterId);
     }
 

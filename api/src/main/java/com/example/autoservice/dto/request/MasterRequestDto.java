@@ -6,5 +6,5 @@ import lombok.Getter;
 @Getter
 public class MasterRequestDto {
     private String fullName;
-    private List<Long> completedOrderId;
+    private List<Long> completedOrderIds;
 }
