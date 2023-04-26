@@ -9,20 +9,41 @@ Fullstack app with Angular on front end part and backend with REST-API Server ap
 Back end:
 Java17
 Spring Boot 3.0.5
-PostgreSQL
 Swagger UI
 SpringDoc
 REST API
 Checkstyle
+Docker
 
 Front end:
 Angular
 
+BD:
+PostgreSQL
+
 📑 Functionality:
 
-• POST - Creation of the "Master" entity • PUT - Editing entity data • GET - Receiving master's orders • GET - Calculation and issuance of wages to the master • POST - Creation of the "Machine" entity • PUT - Editing entity data • POST - Creation of the entity "Owner of the Machine" • PUT - Editing the data of the entity • GET - Get this customer's orders • POST - Creation of the "Order" entity • POST - Adding "Product" to the "Order" entity • PUT - Editing entity data • PUT - Editing the status of the "Order" • GET - Calculation of the cost of the "Order" • POST - Creation of the "Service" entity • PUT - Editing entity data • PUT - Editing the "Service" status • POST - Creation of the entity "Product" • PUT - Editing entity data
+• POST - Creation of the "Master" entity 
+• PUT - Editing entity data 
+• GET - Receiving master's orders 
+• GET - Calculation and issuance of wages to the master 
+• POST - Creation of the "Machine" entity 
+• PUT - Editing entity data 
+• POST - Creation of the entity "Owner of the Machine" 
+• PUT - Editing the data of the entity 
+• GET - Get this customer's orders 
+• POST - Creation of the "Order" entity 
+• POST - Adding "Product" to the "Order" entity 
+• PUT - Editing entity data 
+• PUT - Editing the status of the "Order" 
+• GET - Calculation of the cost of the "Order" 
+• POST - Creation of the "Service" entity 
+• PUT - Editing entity data 
+• PUT - Editing the "Service" status 
+• POST - Creation of the entity "Product" 
+• PUT - Editing entity data
 
-🖥️ Project SetUp:
+🖥️ BackEnd Project SetUp:
 
 Clone this repo.
 Start your PostgreSQLServer
