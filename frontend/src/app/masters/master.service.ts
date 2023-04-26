@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
 import Long from "long";
 import {Master} from "../model/master";
 import {Order} from "../model/order";
-import {Good} from "../model/good";
 
 @Injectable({
   providedIn: 'root'
@@ -21,12 +20,12 @@ export class MasterService {
       .get<Master[]>(`${this.apiUrl}${this.masterPrefix}`)
   }
 
-  getMastersOrders(masterId: Long): Observable<Order[]> {
-    const url = `${this.apiUrl}${this.masterPrefix}/orders?id=${masterId}`
-    return this.httpClient.get<Order[]>(url)
+  getMastersOrders(masterId: number): Observable<Order[]> {
+    const url = `${this.apiUrl}${this.masterPrefix}/orders`
+    return this.httpClient.get<Order[]>(url, {params: new HttpParams().set('masterId', `${masterId}`)})
   }
 
-  updateMaster(id: Long, master: Master): Observable<Master> {
+  updateMaster(id: number, master: Master): Observable<Master> {
     const url = `${this.apiUrl}${this.masterPrefix}/${id}`;
     return this.httpClient.put<Master>(url, master);
   }

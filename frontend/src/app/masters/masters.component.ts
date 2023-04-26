@@ -14,11 +14,11 @@ import {GoodService} from "../goods/good.service";
 export class MastersComponent {
   master!: Master;
   readonly masters$: Observable<Master[]>;
-  // readonly orders$: Observable<Order[]>;
-  masterId: Long = Long.ZERO;
+  masterId: number = 0;
+  masterFullName: string = 'test';
+  masterCompletedOrderId: number = 0;
 
-  updatedMaster: Master = { id: Long.ZERO, fullName: '', completedOrderId: [] = [Long.ZERO]};
-  newMaster: Master = { id: Long.ZERO, fullName: '', completedOrderId: [] };
+  newMaster: Master = { id: 0, fullName: '', completedOrderIds: [0] };
   constructor( private masterService: MasterService) {
     this.masters$ = this.masterService.getMasters()
   }
@@ -27,17 +27,26 @@ export class MastersComponent {
   }
 
   onUpdateMaster() {
-    const masterId = Long.fromString(this.updatedMaster.id.toString());
-    this.masterService.updateMaster(masterId, this.updatedMaster).subscribe(() => {
+    console.log(this.masterId, this.masterFullName, this.masterCompletedOrderId);
+    this.masterService.updateMaster(this.masterId, {
+      fullName: this.masterFullName,
+      completedOrderIds: [] = [this.masterCompletedOrderId]
+    }).subscribe((data) => {
       console.log('Master updated successfully');
+      console.log(data);
     }, (error) => {
       console.log('Error updating Master', error);
     });
   }
 
   onCreateMaster() {
-    this.masterService.createMaster(this.newMaster).subscribe(() => {
+    console.log(this.newMaster);
+    this.masterService.createMaster({
+      fullName: this.masterFullName,
+      completedOrderIds: [] = [this.masterCompletedOrderId]
+    }).subscribe((data) => {
       console.log('Master created successfully');
+      console.log(data)
     }, (error) => {
       console.log('Error creating Master', error);
     });

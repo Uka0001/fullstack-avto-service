@@ -5,7 +5,7 @@
 <br>
 <h2>Get Master Orders method)</h2>
 <form (ngSubmit)="onGetMasterOrders()">
-  <label for="masterId">ID:</label>
+  <label>ID:</label>
   <input type="number" name="masterId" [(ngModel)]="masterId">
 
   <button type="submit">Get Masters Orders</button>
@@ -14,28 +14,28 @@
   <br>
   <h2>Update Master method</h2>
   <form (ngSubmit)="onUpdateMaster()">
-    <label for="id">ID:</label>
-    <input type="number" name="id" [(ngModel)]="updatedMaster.id">
+    <label>ID:</label>
+    <input type="number"  [(ngModel)]="masterId">
 
-    <label for="fullName">Full Name:</label>
-    <input type="text" name="fullName" [(ngModel)]="updatedMaster.fullName">
+    <label>Full Name:</label>
+    <input type="text" name="fullName" [(ngModel)]="masterFullName">
 
-    <label for="completedOrderId">Completed Order Id:</label>
-    <input type="number" name="completedOrderId[]" [(ngModel)]="updatedMaster.completedOrderId">
+    <label>Completed Order Id:</label>
+    <input type="number" name="completedOrderId"  [(ngModel)]="masterCompletedOrderId">
 
     <button type="submit">Update Master</button>
   </form>
 </div>
 <div>
   <br>
-  <h2>Create good method</h2>
+  <h2>Create Master method</h2>
   <form (ngSubmit)="onCreateMaster()">
 
-    <label for="fullName">Full Name:</label>
-    <input type="text" name="fullName" [(ngModel)]="newMaster.fullName">
+    <label>Full Name:</label>
+    <input type="text" name="fullName" [(ngModel)]="this.masterFullName">
 
-    <label for="completedOrderId">Completed Order Id:</label>
-    <input type="number" name="completedOrderId[]" [(ngModel)]="newMaster.completedOrderId">
+    <label>Completed Order Id:</label>
+    <input type="number" name="completedOrderId" [(ngModel)]="this.masterCompletedOrderId">
 
     <button type="submit">Create Master</button>
   </form>
