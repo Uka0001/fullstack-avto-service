@@ -2,14 +2,26 @@
   <h1>Masters component</h1>
 </div>
 <p>masters works!</p>
-<br>
-<h2>Get Master Orders method)</h2>
-<form (ngSubmit)="onGetMasterOrders()">
-  <label>ID:</label>
-  <input type="number" name="masterId" [(ngModel)]="masterId">
+<div>
+  <br>
+  <h2>Get Master Orders method)</h2>
+  <form (ngSubmit)="onGetMasterOrders()">
+    <label>ID:</label>
+    <input type="number" name="masterId" [(ngModel)]="masterId">
 
-  <button type="submit">Get Masters Orders</button>
-</form>
+    <button type="submit">Get Masters Orders</button>
+  </form>
+</div>
+<div>
+  <br>
+  <h2>Get Master Wages method)</h2>
+  <form (ngSubmit)="onGetMasterWages()">
+    <label>ID:</label>
+    <input type="number" name="masterId" [(ngModel)]="masterId">
+
+    <button type="submit">Get Masters Wages</button>
+  </form>
+</div>
 <div>
   <br>
   <h2>Update Master method</h2>

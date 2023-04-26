@@ -1,10 +1,7 @@
 import { Component } from '@angular/core';
 import {Observable} from "rxjs";
-import Long from "long";
 import {Master} from "../model/master";
 import {MasterService} from "./master.service";
-import {Order} from "../model/order";
-import {GoodService} from "../goods/good.service";
 
 @Component({
   selector: 'app-masters',
@@ -18,7 +15,7 @@ export class MastersComponent {
   masterFullName: string = 'test';
   masterCompletedOrderId: number = 0;
 
-  newMaster: Master = { id: 0, fullName: '', completedOrderIds: [0] };
+  // newMaster: Master = { id: 0, fullName: '', completedOrderIds: [0] };
   constructor( private masterService: MasterService) {
     this.masters$ = this.masterService.getMasters()
   }
@@ -40,7 +37,7 @@ export class MastersComponent {
   }
 
   onCreateMaster() {
-    console.log(this.newMaster);
+    // console.log(this.newMaster);
     this.masterService.createMaster({
       fullName: this.masterFullName,
       completedOrderIds: [] = [this.masterCompletedOrderId]
@@ -53,8 +50,18 @@ export class MastersComponent {
   }
 
   onGetMasterOrders() {
-    this.masterService.getMastersOrders(this.masterId).subscribe(() => {
+    this.masterService.getMastersOrders(this.masterId).subscribe((data) => {
       console.log('Master orders got successfully');
+      console.log(data);
+    }, (error) => {
+      console.log('Error getting masters orders', error);
+    });
+  }
+
+  onGetMasterWages() {
+    this.masterService.getMastersWages(this.masterId).subscribe((data) => {
+      console.log('Master orders got successfully');
+      console.log(data);
     }, (error) => {
       console.log('Error getting masters orders', error);
     });

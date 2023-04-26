@@ -2,3 +2,48 @@
   <h1>Owners component</h1>
 </div>
 <p>owners works!</p>
+<div>
+  <br>
+  <h2>Get Owner Orders method)</h2>
+  <form (ngSubmit)="onGetOwnerOrders()">
+    <label>ID:</label>
+    <input type="number" name="id" [(ngModel)]="id">
+
+    <button type="submit">Get Owners Orders</button>
+  </form>
+</div>
+<div>
+  <br>
+  <h2>Update Owner method</h2>
+  <form (ngSubmit)="onUpdateOwner()">
+    <label>ID:</label>
+    <input type="number" name="id"  [(ngModel)]="id">
+
+    <label>Owner name:</label>
+    <input type="text" name="ownerName" [(ngModel)]="ownerName">
+
+    <label>Cars Ids:</label>
+    <input type="number" name="carsId"  [(ngModel)]="carsId">
+
+    <label>Orders Ids:</label>
+    <input type="number" name="orderId"  [(ngModel)]="ordersId">
+
+    <button type="submit">Update Owner</button>
+  </form>
+</div>
+<div>
+  <br>
+  <h2>Create Owner method</h2>
+  <form (ngSubmit)="onCreateOwner()">
+    <label>Owner name:</label>
+    <input type="text" name="ownerName" [(ngModel)]="ownerName">
+
+    <label>Cars Ids:</label>
+    <input type="number" name="carsId"  [(ngModel)]="carsId">
+
+    <label>Orders Ids:</label>
+    <input type="number" name="orderId"  [(ngModel)]="ordersId">
+
+    <button type="submit">Create Owner</button>
+  </form>
+</div>
