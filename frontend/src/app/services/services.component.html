@@ -5,12 +5,12 @@
 <div>
   <br>
   <h2>Update Service status method</h2>
-  <form name="updateServiceName" (ngSubmit)="onUpdateServiceStatus()">
+  <form name="updateServiceStatus" (ngSubmit)="onUpdateServiceStatus()">
     <label>ID:</label>
     <input type="number" name="id"  [(ngModel)]="id">
 
     <label>Status:</label>
-    <input type="text" name="updatedStatus" [(ngModel)]="updatedStatus">
+    <input type="text" name="serviceStatus" [(ngModel)]="serviceStatus">
 
     <button type="submit">Update Service Status</button>
   </form>
@@ -35,7 +35,7 @@
     <input type="number" name="price"  [(ngModel)]="price">
 
     <label>Status:</label>
-    <input type="text" name="updatedStatus"  [(ngModel)]="updatedStatus">
+    <input type="text" name="updatedStatus"  [(ngModel)]="serviceStatus">
 
     <button type="submit">Update Service</button>
   </form>
@@ -57,7 +57,7 @@
     <input type="number" name="price"  [(ngModel)]="price">
 
     <label>Status:</label>
-    <input type="text" name="updatedStatus"  [(ngModel)]="updatedStatus">
+    <input type="text" name="updatedStatus"  [(ngModel)]="serviceStatus">
 
     <button type="submit">Create Service</button>
   </form>

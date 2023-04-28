@@ -8,5 +8,5 @@ export interface Service {
   orderId: number;
   masterId: number;
   price: Decimal;
-  status: ServiceStatus;
+  serviceStatus: ServiceStatus;
 }

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Service} from "../model/service";
 import {ServiceStatus} from "../model/serviceStatus";
@@ -23,9 +23,9 @@ export class ServiceService {
     return this.httpClient.put<Service>(url, service);
   }
 
-  updateServiceStatus(id: number, status: ServiceStatus): Observable<Service> {
+  updateServiceStatus(id: number, serviceStatus: ServiceStatus): Observable<Service> {
     const url = `${this.apiUrl}${this.servicePrefix}/${id}/status`;
-    return this.httpClient.put<Service>(url, status);
+    return this.httpClient.put<Service>(url, {params: new HttpParams().set('serviceStatus', `${serviceStatus}`)});
   }
 
   createService(service: Service): Observable<Service> {

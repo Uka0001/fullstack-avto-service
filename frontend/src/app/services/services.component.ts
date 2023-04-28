@@ -18,7 +18,7 @@ export class ServicesComponent {
   orderId: number = 0;
   masterId: number = 0;
   price: Decimal = Decimal.round(0);
-  updatedStatus: ServiceStatus = ServiceStatus.NOT_PAID;
+  serviceStatus: ServiceStatus = ServiceStatus.NOT_PAID;
   constructor( private serviceService: ServiceService) {
     this.services$ = this.serviceService.getServices()
   }
@@ -32,7 +32,7 @@ export class ServicesComponent {
       orderId: this.orderId,
       masterId: this.masterId,
       price: this.price,
-      status: this.updatedStatus,
+      serviceStatus: this.serviceStatus,
     }).subscribe((data) => {
       console.log('Owner updated successfully');
       console.log(data);
@@ -42,8 +42,8 @@ export class ServicesComponent {
   }
 
   onUpdateServiceStatus() {
-    console.log(this.id, this.updatedStatus)
-    this.serviceService.updateServiceStatus(this.id, this.updatedStatus)
+    console.log(this.id, this.serviceStatus)
+    this.serviceService.updateServiceStatus(this.id, this.serviceStatus)
       .subscribe((data) => {
       console.log('Service status updated successfully');
       console.log(data);
@@ -58,7 +58,7 @@ export class ServicesComponent {
       orderId: this.orderId,
       masterId: this.masterId,
       price: this.price,
-      status: this.updatedStatus,
+      serviceStatus: this.serviceStatus,
     }).subscribe((data) => {
       console.log('Service created successfully');
       console.log(data);

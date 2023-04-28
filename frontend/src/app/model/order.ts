@@ -4,7 +4,7 @@ import {Decimal} from "decimal.js";
 import {OrderStatus} from "./orderstatus";
 
 export interface Order {
-  id: number;
+  id?: number;
   carId: number;
   masterId: number;
   description: string;
