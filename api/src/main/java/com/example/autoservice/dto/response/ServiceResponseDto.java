@@ -13,5 +13,5 @@ public class ServiceResponseDto {
     private Long orderId;
     private Long masterId;
     private BigDecimal price;
-    private ServiceStatus status;
+    private ServiceStatus serviceStatus;
 }

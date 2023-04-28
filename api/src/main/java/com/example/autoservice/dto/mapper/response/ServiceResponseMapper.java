@@ -12,7 +12,7 @@ public class ServiceResponseMapper
     public ServiceResponseDto toDto(Service service) {
         ServiceResponseDto serviceResponseDto = new ServiceResponseDto();
         serviceResponseDto.setName(service.getName());
-        serviceResponseDto.setStatus(service.getStatus());
+        serviceResponseDto.setServiceStatus(service.getStatus());
         serviceResponseDto.setOrderId(service.getOrder().getId());
         serviceResponseDto.setPrice(service.getPrice());
         serviceResponseDto.setMasterId(service.getMaster().getId());

@@ -6,6 +6,9 @@ import com.example.autoservice.repository.ServiceRepository;
 import com.example.autoservice.service.ServiceService;
 import lombok.AllArgsConstructor;
 
+import java.util.NoSuchElementException;
+import java.util.Optional;
+
 @org.springframework.stereotype.Service
 @AllArgsConstructor
 public class ServiceServiceImpl implements ServiceService {
@@ -23,7 +26,9 @@ public class ServiceServiceImpl implements ServiceService {
     }
 
     @Override
-    public Service updateByStatus(ServiceStatus status, Service service) {
+    public Service updateByStatus(Long id, ServiceStatus status) {
+        Optional<Service> optionalService = Optional.of(serviceRepository.findById(id).orElseThrow());
+        Service service = optionalService.get();
         service.setStatus(status);
         return serviceRepository.save(service);
     }

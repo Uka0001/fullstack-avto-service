@@ -18,12 +18,12 @@ public class ServiceRequestMapper
     @Override
     public Service fromDto(ServiceRequestDto dto) {
         Service service = new Service();
-        service.setStatus(dto.getStatus());
+        service.setStatus(dto.getServiceStatus());
         service.setName(dto.getName());
         service.setOrder(orderRepository
                 .findById(dto.getOrderId())
                 .orElse(null));
-        service.setStatus(dto.getStatus());
+        service.setStatus(dto.getServiceStatus());
         service.setPrice(dto.getPrice());
         service.setMaster(masterRepository
                 .findById(dto.getMasterId())

@@ -9,7 +9,7 @@ public interface ServiceService {
 
     Service update(Service service, Long updatedServiceId);
 
-    Service updateByStatus(ServiceStatus status, Service service);
+    Service updateByStatus(Long id, ServiceStatus status);
 
     Service getById(Long id);
 }

@@ -42,9 +42,9 @@ public class ServiceController {
 
     @PutMapping("/{id}/status")
     public ServiceResponseDto updateServiceStatus(@PathVariable Long id,
-                                                  @RequestParam ServiceStatus status) {
+                                                  @RequestParam ServiceStatus updatedStatus) {
         Service service = serviceService.getById(id);
-        service.setStatus(status);
+        service.setStatus(updatedStatus);
         service.setId(id);
         return responseMapper.toDto(serviceService.save(service));
     }

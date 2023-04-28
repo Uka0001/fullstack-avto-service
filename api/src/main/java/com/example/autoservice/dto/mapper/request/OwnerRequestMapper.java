@@ -20,11 +20,11 @@ public class OwnerRequestMapper
     public Owner fromDto(OwnerRequestDto dto) {
         Owner owner = new Owner();
         owner.setOwnerName(dto.getOwnerName());
-        owner.setCars(dto.getCarsIdList().stream()
+        owner.setCars(dto.getCarsIds().stream()
                 .map(carRepository::findById)
                 .map(car -> car.orElse(null))
                 .collect(Collectors.toList()));
-        owner.setOrders(dto.getOrdersIdList().stream()
+        owner.setOrders(dto.getOrdersIds().stream()
                 .map(orderRepository::findById)
                 .map(order -> order.orElse(null))
                 .collect(Collectors.toList()));

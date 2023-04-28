@@ -6,6 +6,6 @@ import lombok.Getter;
 @Getter
 public class OwnerRequestDto {
     private String ownerName;
-    private List<Long> carsIdList;
-    private List<Long> ordersIdList;
+    private List<Long> carsIds;
+    private List<Long> ordersIds;
 }

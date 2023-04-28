@@ -14,7 +14,7 @@ public class MasterResponseMapper
     @Override
     public MasterResponseDto toDto(Master master) {
         MasterResponseDto masterResponseDto = new MasterResponseDto();
-        masterResponseDto.setCompletedOrderId(
+        masterResponseDto.setCompletedOrderIds(
                 master.getCompletedOrder()
                         .stream()
                         .map(Order::getId)

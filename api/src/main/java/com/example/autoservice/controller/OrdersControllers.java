@@ -70,7 +70,7 @@ public class OrdersControllers {
     }
 
     @GetMapping("/cost")
-    public BigDecimal getOrderCost(Long orderId) {
-        return orderService.calculate(orderService.getOrderById(orderId));
+    public BigDecimal getOrderCost(@RequestParam Long id) {
+        return orderService.calculate(orderService.getOrderById(id));
     }
 }

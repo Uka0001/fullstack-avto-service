@@ -10,5 +10,5 @@ public class ServiceRequestDto {
     private String name;
     private Long masterId;
     private BigDecimal price;
-    private ServiceStatus status;
+    private ServiceStatus serviceStatus;
 }

@@ -13,10 +13,10 @@ public class OwnerResponseMapper
     public OwnerResponseDto toDto(Owner owner) {
         OwnerResponseDto responseDto = new OwnerResponseDto();
         responseDto.setOwnerName(owner.getOwnerName());
-        responseDto.setCarsId(owner.getCars().stream()
+        responseDto.setCarsIds(owner.getCars().stream()
                 .map(car -> car.getId())
                 .collect(Collectors.toList()));
-        responseDto.setOrdersId(owner.getOrders().stream()
+        responseDto.setOrdersIds(owner.getOrders().stream()
                 .map(car -> car.getId())
                 .collect(Collectors.toList()));
         responseDto.setId(owner.getId());

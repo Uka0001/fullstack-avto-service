@@ -9,6 +9,6 @@ import lombok.Setter;
 public class OwnerResponseDto {
     private Long id;
     private String ownerName;
-    private List<Long> carsId;
-    private List<Long> ordersId;
+    private List<Long> carsIds;
+    private List<Long> ordersIds;
 }
